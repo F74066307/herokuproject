@@ -99,7 +99,7 @@ def callback():
                 text=random.choice(textlist)
 　　　　　　
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text)
+            event.reply_token, TextSendMessage(text=text)
         )
 
     return "OK"
