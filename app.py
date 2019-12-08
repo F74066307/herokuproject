@@ -85,21 +85,21 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
 
-            if event.message.text.find("聽歌")!=-1:
-                text="https://www.youtube.com/playlist?list=PL1NeGg1woXqlISJkxjgwHKgB8LmR7tk92"
-            elif event.message.text.find("ホロぐら")!=-1 or event.message.text.find("hologura")!=-1:
-                text=hologura
-            elif event.message.text.find("剪輯")!=-1 or event.message.text.find("切り抜き")!=-1:
-                text="https://www.youtube.com/playlist?list=PL1NeGg1woXqk0_YA5OJkJZoibyqyqsUE9"
-            elif event.message.text.find("ASMR")!=-1:
-                text="https://www.youtube.com/playlist?list=PL1NeGg1woXqlNFSy_AW3x6RwTqP5rTM_c"
-            elif event.message.text.find("mio")!=-1 or event.message.text.find("ookami")!=-1 or event.message.text.find("大神")!=-1 or event.message.text.find("ミオ")!=-1:
-                text="https://www.youtube.com/channel/UCp-5t9SrOQwXMU7iIjQfARg"
-            else :
-                text=random.choice(textlist)
-　　　　　　
+        if event.message.text.find("聽歌")!=-1:
+            text=TextSendMessage(text="https://www.youtube.com/playlist?list=PL1NeGg1woXqlISJkxjgwHKgB8LmR7tk92")
+        elif event.message.text.find("hologura")!=-1:
+            text=TextSendMessage(text=hologura)
+        elif event.message.text.find("剪輯")!=-1 or event.message.text.find("切り抜き")!=-1:
+            text=TextSendMessage(text="https://www.youtube.com/playlist?list=PL1NeGg1woXqk0_YA5OJkJZoibyqyqsUE9")
+        elif event.message.text.find("ASMR")!=-1:
+            text=TextSendMessage(text="https://www.youtube.com/playlist?list=PL1NeGg1woXqlNFSy_AW3x6RwTqP5rTM_c")
+        elif event.message.text.find("mio")!=-1 or event.message.text.find("ookami")!=-1 or event.message.text.find("大神")!=-1 or event.message.text.find("ミオ")!=-1:
+            text=TextSendMessage(text="https://www.youtube.com/channel/UCp-5t9SrOQwXMU7iIjQfARg")
+        else :
+            text=TextSendMessage(text=random.choice(textlist))
+
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.message.text)
+            event.reply_token, text
         )
 
     return "OK"
