@@ -14,4 +14,4 @@
 其他－＞從寫好的隨機挑選
 
 ## Finite State Machine
-![fsm](./img/Untitled Diagram.drawio)
+![fsm](./img/Untitled Diagram.png)
