@@ -1,5 +1,6 @@
 import os
 import sys
+import random
 
 from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
@@ -74,7 +75,7 @@ def callback():
             continue
         if not isinstance(event.message, TextMessage):
             continue
-
+        
         if event.message.text.find("聽歌")!=-1:
             text=TextSendMessage(text="https://www.youtube.com/playlist?list=PL1NeGg1woXqlISJkxjgwHKgB8LmR7tk92")
         elif event.message.text.find("hologura")!=-1:
@@ -86,7 +87,18 @@ def callback():
         elif event.message.text.find("mio")!=-1 or event.message.text.find("ookami")!=-1 or event.message.text.find("大神")!=-1:
             text=TextSendMessage(text="https://www.youtube.com/channel/UCp-5t9SrOQwXMU7iIjQfARg")
         else:
-            text=TextSendMessage(text="聽歌,hologura,剪輯ASMR,mio")
+            textlist[
+    "在想些什麼嗎?",
+    "聽些歌吧\nhttps://www.youtube.com/playlist?list=PL1NeGg1woXqlISJkxjgwHKgB8LmR7tk92",
+    "看些影片嗎?\nhttps://www.youtube.com/playlist?list=PL1NeGg1woXqk0_YA5OJkJZoibyqyqsUE9",
+    "是否是累了呢",
+    "一時找不到的東西往往都在身邊，轉過頭去看看吧",
+    "覺得這世界無趣?正巧，我也是",
+    "正如同我無法給予你什麼一樣，你也無法給任何人什麼",
+    "悲傷吧，哀慟吧，那便是你活著的證明",
+    "那是一個美好的日子，花兒綻放著，鳥兒在鳴叫，在這樣的日子裡，一個像你一樣的孩子…\n就該在地獄里焚燒殆盡\nhttps://youtu.be/wDgQdr8ZkTw"
+]
+            text=TextSendMessage(text=random.choice(textlist))
 
         line_bot_api.reply_message(
             event.reply_token, text
