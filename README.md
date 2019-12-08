@@ -14,4 +14,4 @@
 其他－＞從寫好的隨機挑選
 
 ## Finite State Machine
-![fsm](./img/Untitled Diagram.png)
+![fsm](https://github.com/F74066307/herokuproject/blob/master/img/Untitled%20Diagram.png)
