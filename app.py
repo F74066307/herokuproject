@@ -15,21 +15,45 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state1", "state2","state3","state4","state5","state6"],
+    states=["user", "歌單", "動畫","剪輯動畫","asmr","mio","罐頭回覆"],
     transitions=[
         {
             "trigger": "advance",
             "source": "user",
-            "dest": "state1",
-            "conditions": "hello",
+            "dest": "歌單",
+            "conditions": "聽歌",
         },
         {
             "trigger": "advance",
             "source": "user",
-            "dest": "state2",
-            "conditions": "bye",
+            "dest": "動畫",
+            "conditions": "hologura",
         },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "user"},
+        {
+            "trigger": "advance",
+            "source": "user",
+            "dest": "剪輯動畫",
+            "conditions": "剪輯",
+        },
+        {
+            "trigger": "advance",
+            "source": "user",
+            "dest": "asmr",
+            "conditions": "asmr",
+        },
+        {
+            "trigger": "advance",
+            "source": "user",
+            "dest": "mio",
+            "conditions": "mio or ookami or 大神",
+        },
+        {
+            "trigger": "advance",
+            "source": "user",
+            "dest": "罐頭回覆",
+            "conditions": "others",
+        },
+        {"trigger": "go_back", "source": ["歌單", "動畫","剪輯動畫","asmr","mio","罐頭回覆"], "dest": "user"},
     ],
     initial="user",
     auto_transitions=False,
