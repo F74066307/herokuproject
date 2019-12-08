@@ -1,8 +1,17 @@
 # TOC Project 2020
 
+## 大致架構
 接到「聽歌」ー＞回傳歌單
+
 「hologura」－＞回傳ホロぐら的播放列表
+
 「剪輯」－＞回傳剪輯動畫的播放清單
+
 「ASMR」－＞回傳ASMR的播放清單
+
 「mio」－＞回傳大神ミオ的頻道
+
 其他－＞從寫好的隨機挑選
+
+## Finite State Machine
+![fsm](./img/Untitled Diagram.drawio)
