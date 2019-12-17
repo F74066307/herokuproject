@@ -15,14 +15,20 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "歌單", "動畫","剪輯動畫","asmr","mio","罐頭回覆"],
+    states=["user", "歌單", "動畫","剪輯動畫","asmr","mio","罐頭回覆","hello"],
     transitions=[
+        {
+            "trigger": "advance",
+            "source": "user",
+            "dest": "hello",
+            "conditions": "hello",
+        },
         {
             "trigger": "advance",
             "source": "user",
             "dest": "歌單",
             "conditions": "聽歌",
-        },
+        }
         {
             "trigger": "advance",
             "source": "user",
@@ -53,7 +59,7 @@ machine = TocMachine(
             "dest": "罐頭回覆",
             "conditions": "others",
         },
-        {"trigger": "go_back", "source": ["歌單", "動畫","剪輯動畫","asmr","mio","罐頭回覆"], "dest": "user"},
+        {"trigger": "go_back", "source": ["歌單", "動畫","剪輯動畫","asmr","mio","罐頭回覆","hello"], "dest": "user"},
     ],
     initial="user",
     auto_transitions=False,
@@ -151,6 +157,8 @@ def webhook_handler():
         response = machine.advance(event)
         if response == False:
             send_text_message(event.reply_token, "Not Entering any State")
+        else 
+            send_text_message(event.reply_token,"hello world")
 
     return "OK"
 
