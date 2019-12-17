@@ -152,6 +152,7 @@ def webhook_handler():
             continue
         if not isinstance(event.message.text, str):
             continue
+        send_text_message(event.reply_token,"hello world")
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
         response = machine.advance(event)
