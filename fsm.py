@@ -9,7 +9,7 @@ class TocMachine(GraphMachine):
 
     def hello(self,event):
         text = event.message.text
-        return text.lower() == "go to hello_world"
+        return text.lower() == "hello"
     def on_enter_hello(self, event):
         print("Hello world")
 
