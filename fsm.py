@@ -7,6 +7,16 @@ class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
 
+    def hello(self,event):
+        text = event.message.text
+        return text.lower() == "go to hello_world"
+    def on_enter_hello(self, event):
+        print("Hello world")
+
+        reply_token = event.reply_token
+        send_text_message(reply_token, "hello world")
+        self.go_back()
+
     def is_going_to_state1(self, event):
         text = event.message.text
         return text.lower() == "go to 歌單"
