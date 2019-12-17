@@ -28,7 +28,7 @@ machine = TocMachine(
             "source": "user",
             "dest": "歌單",
             "conditions": "聽歌",
-        }
+        },
         {
             "trigger": "advance",
             "source": "user",
